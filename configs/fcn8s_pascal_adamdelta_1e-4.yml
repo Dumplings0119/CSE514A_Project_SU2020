@@ -1,0 +1,25 @@
+model:
+    arch: fcn8s
+data:
+    dataset: pascal
+    train_split: train_aug
+    val_split: val
+    img_rows: 'same'
+    img_cols: 'same'
+    path: /content/drive/My Drive/VOC2012/VOCdevkit/VOC2012/
+    sbd_path: /content/drive/My Drive/benchmark/benchmark_RELEASE/
+training:
+    train_iters: 100000
+    batch_size: 1
+    val_interval: 5000
+    n_workers: 16
+    print_interval: 1000
+    optimizer:
+        name: 'adadelta'
+        lr: 1.0e-4
+        weight_decay: 0.0005
+    loss:
+        name: 'cross_entropy'
+        size_average: False
+    lr_schedule:
+    resume: /content/drive/My Drive/pytorch-semseg/runs/fcn8s_pascal_adamdelta_1e-4/76429/fcn8s_pascal_best_model.pkl
